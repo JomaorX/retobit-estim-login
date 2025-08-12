@@ -75,7 +75,7 @@ Ejemplo de respuesta:
 
 ## Tarea 3: Añadir método authenticateUser en UserService (Interfaz)
 
-En el archivo `services/UserService.java` debes añadir el método `authenticateUser` que se encargará de autenticar al usuario. Este método recibirá el email y el password del usuario y devolverá un objeto `LoginResponseDTO`.
+En el archivo `services/UserService.java` debes modificar el método `authenticateUser` que se encargará de autenticar al usuario. Este método recibirá el email y el password del usuario y devolverá un objeto `LoginResponseDTO`.
 
 ## Tarea 4: Implementar el método authenticateUser en UserServiceImpl
 

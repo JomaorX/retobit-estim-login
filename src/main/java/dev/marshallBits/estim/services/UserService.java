@@ -7,4 +7,5 @@ public interface UserService {
 
     SignupResponseDTO registerUser(CreateUserDTO createUserDTO);
 
+    Object authenticateUser(String a, String b);
 }

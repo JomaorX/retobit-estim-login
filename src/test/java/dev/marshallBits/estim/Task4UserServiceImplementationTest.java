@@ -5,12 +5,7 @@ import dev.marshallBits.estim.models.Role;
 import dev.marshallBits.estim.repositories.UserRepository;
 import dev.marshallBits.estim.services.UserService;
 import dev.marshallBits.estim.security.JwtUtil;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -144,7 +139,7 @@ public class Task4UserServiceImplementationTest {
 
             // Si JwtUtil está disponible, verificar que el token es válido
             if (jwtUtil != null) {
-                assertDoesNotThrow(() -> jwtUtil.extractUsername(token),
+                assertDoesNotThrow(() -> jwtUtil.getUsernameFromToken(token),
                         "❌ TAREA 4: El token generado debe ser válido según JwtUtil");
             }
 

@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
                 .username(savedUser.getUsername())
                 .build();
     }
+
+    @Override
+    public Object authenticateUser(String a, String b) {
+        return null;
+    }
 }
