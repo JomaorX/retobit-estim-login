@@ -28,6 +28,6 @@ INSERT INTO games (name, review_type, description, developer, publisher, release
 
 -- Initialize users data
 INSERT INTO users (username, email, password, role) VALUES
-('user1', 'user1@example.com', 'Password123', 'ROLE_USER'),
-('admin1', 'admin1@example.com', 'Password123', 'ROLE_ADMIN'),
-('moderator1', 'moderator1@example.com', 'Password123', 'ROLE_MODERATOR');
+('user1', 'user1@example.com', '$2a$10$cKcvWnyrG6eouR/HeetCl.5WgFT.DHH.jXkTGZWMlay83jT6qmA3a', 'ROLE_USER'),
+('admin1', 'admin1@example.com', '$2a$10$cKcvWnyrG6eouR/HeetCl.5WgFT.DHH.jXkTGZWMlay83jT6qmA3a', 'ROLE_ADMIN'),
+('moderator1', 'moderator1@example.com', '$2a$10$cKcvWnyrG6eouR/HeetCl.5WgFT.DHH.jXkTGZWMlay83jT6qmA3a', 'ROLE_MODERATOR');
