@@ -87,9 +87,9 @@ Recuerda que el *return* debe ser un objeto `LoginResponseDTO` con el token JWT 
 
 Para poder recibid un email y un password desde el cliente, debes crear un DTO llamado `LoginUserDTO` que contenga los campos `email` y `password`. Este DTO se usará para recibir los datos del usuario al hacer login.
 
-## Tarea 6: Añadir ruta de login en UserController
+## Tarea 6: Añadir ruta de login en AuthController
 
-En el archivo `controllers/UserController.java` debes añadir una nueva ruta para el login. Esta ruta será un POST a `/api/users/login` y recibirá un objeto `LoginUserDTO` en el cuerpo de la petición. La ruta debe devolver un objeto `LoginResponseDTO` con el token JWT y la información del usuario.
+En el archivo `controllers/AuthController.java` debes añadir una nueva ruta para el login. Esta ruta será un POST a `/api/users/login` y recibirá un objeto `LoginUserDTO` en el cuerpo de la petición. La ruta debe devolver un objeto `LoginResponseDTO` con el token JWT y la información del usuario.
 
 ## Testing
 
