@@ -61,33 +61,33 @@ public class Task6LoginControllerTest {
 
     @Test
     @Order(1)
-    @DisplayName("TAREA 6: Debe existir la ruta POST /api/users/login")
+    @DisplayName("TAREA 6: Debe existir la ruta POST /auth/login")
     void testLoginRouteExists() throws Exception {
         try {
             // Crear un LoginUserDTO válido
             Object loginUserDTO = createLoginUserDTO("test@example.com", "Password123");
             String jsonRequest = objectMapper.writeValueAsString(loginUserDTO);
 
-            mockMvc.perform(post("/api/users/login")
+            mockMvc.perform(post("/auth/login")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonRequest))
                     .andExpect(status().isOk());
 
         } catch (Exception e) {
             if (e.getMessage().contains("404")) {
-                fail("❌ TAREA 6: Debe existir la ruta POST /api/users/login en el controlador");
+                fail("❌ TAREA 6: Debe existir la ruta POST /auth/login en el controlador");
             } else if (e.getMessage().contains("LoginUserDTO")) {
                 fail("❌ TAREA 6: Primero debes crear el LoginUserDTO (Tarea 5)");
             } else {
                 // Si hay otros errores, al menos verificar que la ruta existe
                 try {
-                    mockMvc.perform(post("/api/users/login")
+                    mockMvc.perform(post("/auth/login")
                                     .contentType(MediaType.APPLICATION_JSON)
                                     .content("{}"))
                             .andExpect(status().is4xxClientError()); // Cualquier error 4xx indica que la ruta existe
                 } catch (Exception routeException) {
                     if (routeException.getMessage().contains("404")) {
-                        fail("❌ TAREA 6: Debe existir la ruta POST /api/users/login en el controlador");
+                        fail("❌ TAREA 6: Debe existir la ruta POST /auth/login en el controlador");
                     }
                 }
             }
@@ -102,7 +102,7 @@ public class Task6LoginControllerTest {
             Object loginUserDTO = createLoginUserDTO("test@example.com", "Password123");
             String jsonRequest = objectMapper.writeValueAsString(loginUserDTO);
 
-            MvcResult result = mockMvc.perform(post("/api/users/login")
+            MvcResult result = mockMvc.perform(post("/auth/login")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonRequest))
                     .andExpect(status().isOk())
@@ -111,7 +111,7 @@ public class Task6LoginControllerTest {
             // Verificar que la respuesta no está vacía
             String responseContent = result.getResponse().getContentAsString();
             assertFalse(responseContent.isEmpty(),
-                    "❌ TAREA 6: La ruta /api/users/login debe devolver una respuesta");
+                    "❌ TAREA 6: La ruta /auth/login debe devolver una respuesta");
 
         } catch (Exception e) {
             if (e.getMessage().contains("LoginUserDTO")) {
@@ -130,7 +130,7 @@ public class Task6LoginControllerTest {
             Object loginUserDTO = createLoginUserDTO("test@example.com", "Password123");
             String jsonRequest = objectMapper.writeValueAsString(loginUserDTO);
 
-            MvcResult result = mockMvc.perform(post("/api/users/login")
+            MvcResult result = mockMvc.perform(post("/auth/login")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonRequest))
                     .andExpect(status().isOk())
@@ -164,7 +164,7 @@ public class Task6LoginControllerTest {
             Object loginUserDTO = createLoginUserDTO("test@example.com", "Password123");
             String jsonRequest = objectMapper.writeValueAsString(loginUserDTO);
 
-            MvcResult result = mockMvc.perform(post("/api/users/login")
+            MvcResult result = mockMvc.perform(post("/auth/login")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonRequest))
                     .andExpect(status().isOk())
@@ -193,7 +193,7 @@ public class Task6LoginControllerTest {
             Object loginUserDTO = createLoginUserDTO("test@example.com", "Password123");
             String jsonRequest = objectMapper.writeValueAsString(loginUserDTO);
 
-            MvcResult result = mockMvc.perform(post("/api/users/login")
+            MvcResult result = mockMvc.perform(post("/auth/login")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonRequest))
                     .andExpect(status().isOk())
@@ -221,7 +221,7 @@ public class Task6LoginControllerTest {
             Object loginUserDTO = createLoginUserDTO("test@example.com", "WrongPassword");
             String jsonRequest = objectMapper.writeValueAsString(loginUserDTO);
 
-            mockMvc.perform(post("/api/users/login")
+            mockMvc.perform(post("/auth/login")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonRequest))
                     .andExpect(status().is4xxClientError()); // Debe devolver un error 4xx
@@ -239,7 +239,7 @@ public class Task6LoginControllerTest {
             Object loginUserDTO = createLoginUserDTO("nonexistent@example.com", "Password123");
             String jsonRequest = objectMapper.writeValueAsString(loginUserDTO);
 
-            mockMvc.perform(post("/api/users/login")
+            mockMvc.perform(post("/auth/login")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonRequest))
                     .andExpect(status().is4xxClientError()); // Debe devolver un error 4xx

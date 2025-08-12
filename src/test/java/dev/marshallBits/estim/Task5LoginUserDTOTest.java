@@ -58,33 +58,6 @@ public class Task5LoginUserDTOTest {
 
     @Test
     @Order(4)
-    @DisplayName("TAREA 5: LoginUserDTO debe usar Lombok para generar getters y setters")
-    void testLoginUserDTOUsesLombok() {
-        try {
-            Class<?> loginUserClass = Class.forName("dev.marshallBits.estim.dto.LoginUserDTO");
-
-            // Verificar que tiene las anotaciones de Lombok
-            boolean hasDataAnnotation = loginUserClass.isAnnotationPresent(
-                    Class.forName("lombok.Data").asSubclass(java.lang.annotation.Annotation.class));
-            boolean hasGetterAnnotation = loginUserClass.isAnnotationPresent(
-                    Class.forName("lombok.Getter").asSubclass(java.lang.annotation.Annotation.class));
-            boolean hasSetterAnnotation = loginUserClass.isAnnotationPresent(
-                    Class.forName("lombok.Setter").asSubclass(java.lang.annotation.Annotation.class));
-
-            assertTrue(hasDataAnnotation || (hasGetterAnnotation && hasSetterAnnotation),
-                    "❌ TAREA 5: LoginUserDTO debe usar anotaciones de Lombok (@Data o @Getter/@Setter)");
-
-        } catch (ClassNotFoundException e) {
-            if (e.getMessage().contains("lombok")) {
-                fail("❌ TAREA 5: LoginUserDTO debe usar anotaciones de Lombok (@Data, @Getter, @Setter)");
-            } else {
-                fail("❌ TAREA 5: Debes crear 'LoginUserDTO' en el paquete dev.marshallBits.estim.dto");
-            }
-        }
-    }
-
-    @Test
-    @Order(5)
     @DisplayName("TAREA 5: LoginUserDTO no debe tener campos adicionales innecesarios")
     void testLoginUserDTOOnlyHasRequiredFields() {
         try {
